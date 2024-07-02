@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,12 @@ public class UIManager : MonoBehaviour {
     public BallMovement ball;
     float xspeed;
     float yspeed;
+    public void Start() {
+        ball.speedx = 0;
+        ball.speedy = 0;
+        canvas.enabled = false;
+        canvas.enabled = true;
+    }
     public void StartGame() {
         canvas.enabled = false;
         ball.Begin();

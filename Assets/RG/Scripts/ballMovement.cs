@@ -6,7 +6,8 @@ public class BallMovement : MonoBehaviour {
     public Rigidbody body;
     public ScoreDisplay leftscore;
     public ScoreDisplay rightscore;
-    public UIManager ui;
+    public float x_bound;
+    public float y_bound;
     float x;
     float y;
     public float speedx = 0;
@@ -17,8 +18,8 @@ public class BallMovement : MonoBehaviour {
             direction = -direction;
         }
         transform.position = new Vector3(0, 5, -5);
-        speedx = Random.Range(5.0f, 10.0f);
-        speedy = 10.0f - speedx;
+        speedx = Random.Range(init_speed, init_speed*2);
+        speedy = init_speed*2 - speedx;
         speedx = speedx * direction;
     }
     void Update() {
@@ -35,12 +36,20 @@ public class BallMovement : MonoBehaviour {
         }
     }
     void OnCollisionEnter(Collision collision) {
-        if (y > 9 | y < 1) {
-            speedy = -speedy;
+        if(y > y_bound + 5) {
+            speedy = -Mathf.Abs(speedy);
         }
-        if ( x > 7 | x < -7) {
-            speedx = -speedx;
+
+        if(y < 5 - y_bound) {
+            speedy = Mathf.Abs(speedy);
         }
-        
+        if(x > x_bound) {
+            speedx = -Mathf.Abs(speedx);
+        }
+
+        if(x < -x_bound) {
+            speedx = Mathf.Abs(speedx);
+        }
+
     }
 }
