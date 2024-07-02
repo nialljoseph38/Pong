@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7164798042072034054}
   - component: {fileID: 7838610799143650124}
   - component: {fileID: 2832646350891502893}
-  - component: {fileID: 6755740555171854665}
   - component: {fileID: 9008224392414395253}
   m_Layer: 0
   m_Name: Ball
@@ -67,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 935f1c270869e6a4792e148ea5d8ad47, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,20 +109,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6755740555171854665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4235638322136822948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b580026a9f25a743868d4456afe8685, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  init_speed: 0
-  body: {fileID: 0}
 --- !u!54 &9008224392414395253
 Rigidbody:
   m_ObjectHideFlags: 0

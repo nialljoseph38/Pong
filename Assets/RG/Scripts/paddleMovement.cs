@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class paddleMovement : MonoBehaviour {
+public class PaddleMovement : MonoBehaviour {
     public float speed;
     public string input_name;
     public Rigidbody body;
