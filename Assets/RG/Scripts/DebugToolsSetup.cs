@@ -52,7 +52,7 @@ public class DebugToolsSetup : MonoBehaviour {
         debugTools.debugMenu.AddCommand("LogWarning", () => { Debug.LogWarning("This is a Warning"); }, DebugCategory.General, 0);
         debugTools.debugMenu.AddCommand<float>("RightPaddleSpeed", value => paddleMovementRight.speed = value, DebugCategory.Gameplay, new SliderElement(5,0,20), 0);
         debugTools.debugMenu.AddCommand<float>("LeftPaddleSpeed", value => paddleMovementLeft.speed = value, DebugCategory.Gameplay, new SliderElement(5, 0, 20), 0);
-        debugTools.debugMenu.AddCommand<float>("BallSpeed", value => ballMovement.init_speed = value, DebugCategory.Gameplay, new SliderElement(5,0,20), 0);
+        debugTools.debugMenu.AddCommand<float>("BallSpeed", value => ballMovement.change_speed = value, DebugCategory.Gameplay, new SliderElement(5,0,20), 0);
         // add a dropdown standard enum
         debugTools.debugMenu.AddCommand<DropdownEnum>("DropdownTest", value => Debug.Log(value), DebugCategory.General, new EnumDropDown(typeof(DropdownEnum)));
 

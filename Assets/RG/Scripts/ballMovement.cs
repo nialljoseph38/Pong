@@ -10,16 +10,20 @@ public class BallMovement : MonoBehaviour {
     public float y_bound;
     float x;
     float y;
+    public float change_speed;
     public float speedx = 0;
     public float speedy = 0;
     float direction = 1;
+    private void Start() {
+        change_speed = init_speed;
+    }
     public void Begin() {
-        if ( Random.Range(0, 2) == 1 ) {
+        if(Random.Range(0, 2) == 1) {
             direction = -direction;
         }
         transform.position = new Vector3(0, 5, -5);
-        speedx = Random.Range(init_speed, init_speed*2);
-        speedy = init_speed*2 - speedx;
+        speedx = Random.Range(init_speed, init_speed * 2);
+        speedy = init_speed * 2 - speedx;
         speedx = speedx * direction;
     }
     void Update() {
@@ -33,6 +37,20 @@ public class BallMovement : MonoBehaviour {
         if(x < -9) {
             Begin();
             rightscore.score_right += 1;
+        }
+        if(change_speed != init_speed) {
+            if(speedx > 0) {
+                direction = 1;
+            }
+            else {
+                direction = -1;
+            }
+            init_speed = change_speed;
+            speedx = Random.Range(init_speed, init_speed * 2);
+            speedy = init_speed * 2 - speedx;
+            if(speedx > 0) {
+                speedx = speedx * direction;
+            }
         }
     }
     void OnCollisionEnter(Collision collision) {
