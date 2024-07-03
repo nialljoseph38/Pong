@@ -61,6 +61,8 @@ public class BallMovement : MonoBehaviour {
         if(y < 5 - y_bound) {
             speedy = Mathf.Abs(speedy);
         }
+    }
+    public void HorBounce() {
         if(x > x_bound) {
             speedx = -Mathf.Abs(speedx);
         }
@@ -68,6 +70,6 @@ public class BallMovement : MonoBehaviour {
         if(x < -x_bound) {
             speedx = Mathf.Abs(speedx);
         }
-
     }
 }
+

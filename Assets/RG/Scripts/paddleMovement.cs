@@ -2,20 +2,20 @@ using UnityEngine;
 using Fidelity.DebugTools;
 public class PaddleMovement : MonoBehaviour {
     public float speed;
-    public string input_name;
     public Rigidbody body;
+    public BallMovement ballMovement;
     void Update() {
         float v;
-        if(input_name == "paddle_left") {
+        if(transform.position.x < -5) {
             v = Input.GetAxisRaw("paddle_left");
         }
-        else if(input_name == "paddle_right") {
+        else {
             v = Input.GetAxisRaw("paddle_right");
         }
-        else {
-            v = Input.GetAxisRaw("Horizontal");
-        }
         body.linearVelocity = new Vector2(0, (v * speed));
-    }
 
+    }
+    void OnCollisionEnter(Collision collision) {
+        ballMovement.HorBounce();
+    }
 }
